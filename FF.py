@@ -1,4 +1,10 @@
-file_names = ["conv1.csv", "conv2.csv", "conv3.csv", "conv4.csv", "conv5.csv"] 
+#!/usr/bin/python2.7
+
+from sys import argv
+
+file_names = []
+for i in range(1, len(argv)):
+    file_names.append(argv[i]) 
 
 delimiter = " "
 key = 0 
@@ -11,6 +17,7 @@ for name in file_names:
     file = open(name) 
     table={}
     for line in file:
+        line = line.strip()
         data = line.split(delimiter) 
         table[data[key]] = []
         keys.add(data[key])
